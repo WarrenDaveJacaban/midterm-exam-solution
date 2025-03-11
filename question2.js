@@ -1,13 +1,20 @@
-// Set up Express app
 const express = require('express');
 const app = express();
 
-// Route for '/test' to return a message
+// Define the port the server will listen on
+const port = 3000;
+
+// Define the /test route
 app.get('/test', (req, res) => {
-  res.json({ message: 'Express is working! Write your full name' });
+  res.json({ message: 'Welcome to the Express server!' });
 });
 
-// Start server on port 3000
-app.listen(3000, () => {
-  console.log('Server running on http://localhost:3000');
+// Define the root route (/)
+app.get('/', (req, res) => {
+  res.send('Express is working! Warren Dave F. Jacaban');
+});
+
+// Start the server and listen on the specified port
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
